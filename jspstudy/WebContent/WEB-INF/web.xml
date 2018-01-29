@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>jspstudy</display-name>
+  <welcome-file-list>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+<!--   특정 servlet에 initparameter을 xml에 설정  
+		ex.initparam -->
+  <servlet>
+    <servlet-name>InitParamEx</servlet-name>
+    <servlet-class>ex.initparam.InitParamEx</servlet-class>
+    <init-param>
+      <param-name>id</param-name>
+      <param-value>kimtaekook</param-value>
+    </init-param>
+    <init-param>
+      <param-name>pw</param-name>
+      <param-value>a1b2c3d4</param-value>
+    </init-param>
+    <init-param>
+      <param-name>path</param-name>
+      <param-value>d:\</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InitParamEx</servlet-name>
+    <url-pattern>/init</url-pattern>
+  </servlet-mapping>
+
+<!--   만든 자바파일을 contentlistener로 등록 
+		ex.contentlistener -->
+  <listener>
+  	<listener-class>ex.contextlistener.ContextListenerEx</listener-class>
+  </listener>
+ 
+<!--  contextParameter 정의하여 모든 서블릿에서 공유하여 사용 
+		ex.contextparam -->
+ <context-param>
+    <param-name>id</param-name>
+    <param-value>kimtaekook</param-value>
+  </context-param>
+  <context-param>
+    <param-name>pw</param-name>
+    <param-value>1234567890</param-value>
+  </context-param>
+  <context-param>
+    <param-name>path</param-name>
+    <param-value>d:\</param-value>
+  </context-param>
+  
+<!--   <servlet> -->
+<!--   	<servlet-name>lifecycle</servlet-name> -->
+<!--   	<servlet-class>ex.lifecycle.LifeCycleEx</servlet-class> -->
+<!--   </servlet> -->
+<!--   <servlet-mapping> -->
+<!--   	<servlet-name>lifecycle</servlet-name> -->
+<!--   	<url-pattern>/lc</url-pattern> -->
+<!--   </servlet-mapping> -->
+  
+
+</web-app>
