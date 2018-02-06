@@ -4,9 +4,6 @@
   <welcome-file-list>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
-<!--   특정 servlet에 initparameter을 xml에 설정  
-		ex.initparam -->
   <servlet>
     <servlet-name>InitParamEx</servlet-name>
     <servlet-class>ex.initparam.InitParamEx</servlet-class>
@@ -27,16 +24,10 @@
     <servlet-name>InitParamEx</servlet-name>
     <url-pattern>/init</url-pattern>
   </servlet-mapping>
-
-<!--   만든 자바파일을 contentlistener로 등록 
-		ex.contentlistener -->
   <listener>
-  	<listener-class>ex.contextlistener.ContextListenerEx</listener-class>
+    <listener-class>ex.contextlistener.ContextListenerEx</listener-class>
   </listener>
- 
-<!--  contextParameter 정의하여 모든 서블릿에서 공유하여 사용 
-		ex.contextparam -->
- <context-param>
+  <context-param>
     <param-name>id</param-name>
     <param-value>kimtaekook</param-value>
   </context-param>
@@ -48,22 +39,12 @@
     <param-name>path</param-name>
     <param-value>d:\</param-value>
   </context-param>
-  
-<!--   <servlet> -->
-<!--   	<servlet-name>lifecycle</servlet-name> -->
-<!--   	<servlet-class>ex.lifecycle.LifeCycleEx</servlet-class> -->
-<!--   </servlet> -->
-<!--   <servlet-mapping> -->
-<!--   	<servlet-name>lifecycle</servlet-name> -->
-<!--   	<url-pattern>/lc</url-pattern> -->
-<!--   </servlet-mapping> -->
-	<error-page>
-		<error-code>404</error-code>
-		<location>/0130/jsptag/error404.jsp</location>
-	</error-page>
-	<error-page>
-		<error-code>500</error-code>
-		<location>/0130/jsptag/error500.jsp</location>
-	</error-page>
-
+  <error-page>
+    <error-code>404</error-code>
+    <location>/0130/jsptag/error404.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/0130/jsptag/error500.jsp</location>
+  </error-page>
 </web-app>
