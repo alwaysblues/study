@@ -7,10 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<p>회원가입이 정상처리 되엇습니다!</p>
-<a href="login.html">로그인</a>
-
-
+<%= session.getAttribute("name") %>님의 회원정보 수정이 정상 처리 되었습니다.<br/>
+<a href="logout.jsp">로그아웃</a>
 </body>
 </html>

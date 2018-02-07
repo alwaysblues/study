@@ -7,10 +7,18 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%!
+	String name, id, pw;
+%>
 
-<p>회원가입이 정상처리 되엇습니다!</p>
-<a href="login.html">로그인</a>
+<%
+	name = session.getAttribute("name").toString();
+	id = session.getAttribute("id").toString();
+	pw = session.getAttribute("pw").toString();
+%>
 
-
+<%=name %>님 안녕하세요.<br>
+<hr/>
+<a href="modify.jsp">회원정보수정</a>
 </body>
 </html>
