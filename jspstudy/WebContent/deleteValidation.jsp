@@ -7,19 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%!
-	String name, id, pw;
-%>
+	비밀번호를 다시 한번 확인해주세요.
+<form action="DeleteOk" method="post">
+	<input type="hidden" name="id" value="<%=session.getAttribute("id") %>">
+	<input type="password" name="pw" size="10"><br/>
+	<input type="submit" size="5">
+</form>
 
-<%
-	name = session.getAttribute("name").toString();
-	id = session.getAttribute("id").toString();
-	pw = session.getAttribute("pw").toString();
-%>
 
-<%=name %>님 안녕하세요.<br>
-<hr/>
-<a href="modify.jsp">회원정보수정</a>
-<a href="deleteId.jsp">회원탈퇴</a>
 </body>
 </html>
