@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+<!-- <script language="javascript" src="javasriptfile.js"> -->
+<script language="javascript">
+function join_check(){
+	
+// 	var docu = document.reg_form.id.value.length;
+	var reg_form = document.reg_form;
+	
+	if(reg_form.id.value.length == 0){
+
+		alert("아이디는 필수 입니다.")
+		document.reg_form.id.focus();
+		return;
+	
+	} 
+	
+	if(reg_form.id.value.length < 4 ){
+		
+		alert("아이디는 4글자 이상 입력해주세요.")
+		alert(reg_form.id.value);
+		return;
+		
+	}
+	
+	if(reg_form.pw.value.length == 0){
+		
+		alert("비밀번호를 입력해주세요.")
+		reg_form.pw.focus();
+		return;
+		
+	} 
+	
+	if (reg_form.pw.value != reg_form.pw_check.value){
+		
+		aㅣert("비밀번호를 확인해주세요.")
+		reg_form.pw.focus();
+		return;
+		
+	}
+	
+	reg_form.submit();
+}
+
+
+</script>
+</head>
+<body>
+<form action="memberJoin.jsp" method="post" name="reg_form">
+	id		:	<input type="text" id="id" name="id" size="20"><br>
+	pw		:	<input type="password" id="pw" name="pw" size="20"><br>
+	pw check:	<input type="password" id="pw_check" name="pw_check" size="20"><br>
+	name	:	<input type="text" id="name" name="name" size="20"><br>
+	email	:	<input type="text" name="email" size="20"><br>
+	address	:	<input type="text" name="address" size="20">
+				<input type="button" onclick="join_check();" value="가입하기">
+</form>
+
+
+</body>
+</html>
