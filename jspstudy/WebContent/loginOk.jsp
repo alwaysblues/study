@@ -22,7 +22,7 @@
 		out.println("select");
 		session.setAttribute("VailiMem", "ok");
 		session.setAttribute("id", id);
-		session.setAttribute("name", pw);
+		session.setAttribute("pw", pw);
 		response.sendRedirect("main.jsp");
 	} else { %>
 <script language="javascript">

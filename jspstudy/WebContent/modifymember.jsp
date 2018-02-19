@@ -7,9 +7,13 @@
 <%
 request.setCharacterEncoding("UTF-8");
 MemberDAO dao = MemberDAO.getInstance();
-String id = session.getAttribute("id").toString();
-String pw = session.getAttribute("pw").toString();
+String id = (String)session.getAttribute("id");
+String pw = (String)session.getAttribute("pw");
+out.println(id);
 MemberVO vo = dao.selectUser(id,pw);
+
+
+
 %>
 <html>
 <head>

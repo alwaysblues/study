@@ -200,13 +200,12 @@ public class MemberDAO {
 
 	
 	public MemberVO selectUser(String id, String pw) {
-		System.out.println("Select Member");
-		
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		MemberVO vo = null;
-		String sql = "select * from member where id = ? and pw = ?";
+		MemberVO vo = new MemberVO();
+		String id1,pw2,name,email,address;
+		String sql = "select id,pw,name,email,address from member where id = ? and pw = ?";
 		
 		try {
 			
@@ -217,12 +216,16 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 
 			if(rs.next()) {
-				
-				vo.setId(rs.getString("id"));
-				vo.setPw(rs.getString("pw"));
-				vo.setName(rs.getString("name"));
-				vo.setEmail(rs.getString("email"));
-				vo.setAddress(rs.getString("address"));
+				id1 = rs.getString("id");
+				pw2 = rs.getString("pw");
+				name = rs.getString("name");
+				email = rs.getString("email");
+				address = rs.getString("address");
+				vo.setId(id1);
+				vo.setPw(pw2);
+				vo.setName(name);
+				vo.setEmail(email);
+				vo.setAddress(address);
 				
 			} else {
 				// 비밀번호 틀렸을때 처리
