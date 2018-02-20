@@ -3,6 +3,7 @@ package ex.member;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -252,6 +253,56 @@ public class MemberDAO {
 		return vo;
 			
 	}
+	
+	public ArrayList<MemberVO> getMembersAll(){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		MemberVO vo = new MemberVO();
+		ArrayList<MemberVO> list = new ArrayList<MemberVO>();
+		String sql = "select * from member order by idx desc";
+		
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				vo =  new MemberVO();
+				vo.setId(rs.getString("id"));
+				System.out.println("id : " + vo.getId());
+				vo.setPw(rs.getString("pw"));
+				vo.setName(rs.getString("name"));
+				vo.setEmail(rs.getString("email"));
+				vo.setAddress(rs.getString("address"));
+				list.add(vo);
+				}	
+			
+			
+			} catch (Exception e) {
+
+			e.printStackTrace();
+			
+			} finally {
+				try {
+					
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+	
+				} catch (Exception e) {
+				
+					e.printStackTrace();
+					
+				}
+		
+			}
+	
+		return list;
+		
+		
+	}
+	
+	
 
 
 }
